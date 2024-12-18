@@ -1,5 +1,6 @@
 /*
 活动名称：抽生肖金币
+活动地址：https://pro.m.jd.com/mall/active/38fBeMPN3sLNzhvpxCZBbsteaLsv/index.html
 活动变量：jd_sx_task //是否做任务获取次数，默认开启
 
 cron:1 1 1 1 *
