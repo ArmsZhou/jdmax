@@ -594,7 +594,7 @@ async function initJsToken() {
 async function try_feedsList(tabId, page) {
   const sign = await h5stSign(
     {
-      functionId: 'try_SpecFeedList',
+      functionId: 'try_feedsList',
       appid: 'newtry',
       body: {
         tabId: String(tabId),
