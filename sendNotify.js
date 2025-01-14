@@ -2071,10 +2071,15 @@ function GetnickName2() {
 }
 const got = require('got')
 require('dotenv').config()
-let exists = fs.existsSync('/ql/data/config/auth.json')
+let Fileexists280 = fs.existsSync('/ql/data/db/keyv.sqlite')
+let Fileexists_ = fs.existsSync('/ql/data/config/auth.json')
 let authFile = ''
-if (exists) authFile = '/ql/data/config/auth.json'
-else authFile = '/ql/config/auth.json'
+if (Fileexists280)
+    authFile = '/ql/data/db/keyv.sqlite'
+else if (Fileexists_)
+    authFile = '/ql/data/config/auth.json'
+else
+    authFile = '/ql/config/auth.json'
 
 const api = got.extend({
     prefixUrl: 'http://127.0.0.1:5600',
@@ -2082,8 +2087,9 @@ const api = got.extend({
 })
 
 async function getToken() {
-    const authConfig = JSON.parse(fs.readFileSync(authFile))
-    return authConfig.token
+    const authConfig = await fs.readFileSync(authFile)
+    // console.log(authConfig.toString().match(/"token":"(.*?)",/)[1])
+    return authConfig.toString().match(/"token":"(.*?)",/)[1]
 }
 
 async function getEnvs() {
