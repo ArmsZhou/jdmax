@@ -431,12 +431,6 @@ async function sendNotify(text, desp, params = {}, author = '\n\n本通知 By ht
             strTitle = '汪汪乐园养joy领取'
         }
 
-        if (text == '京喜工厂') {
-            if (desp.indexOf('元造进行兑换') != -1) {
-                strTitle = '京喜工厂领取'
-            }
-        }
-
         if (text.indexOf('任务') != -1 && (text.indexOf('新增') != -1 || text.indexOf('删除') != -1)) {
             strTitle = '脚本任务更新'
         }
@@ -2074,7 +2068,7 @@ require('dotenv').config()
 let Fileexists280 = fs.existsSync('/ql/data/db/keyv.sqlite')
 let Fileexists_ = fs.existsSync('/ql/data/config/auth.json')
 let authFile = ''
-if (Fileexists280)
+if (Fileexists280&&process.env.QL_BRANCH.slice(1,5)>=2.18)
     authFile = '/ql/data/db/keyv.sqlite'
 else if (Fileexists_)
     authFile = '/ql/data/config/auth.json'
