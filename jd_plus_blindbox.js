@@ -4,7 +4,6 @@
         jd_plus_blindbox_notify // 是否推送通知（true/false），默认不推送
         jd_plus_blindbox_pinFilter // 账号pin过滤，多个用@进行分割
 
-cron:15 11 * * *
 
 */
 
